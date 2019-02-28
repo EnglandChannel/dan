@@ -1,1 +1,10 @@
 <center><h1>Home page</h1></center>
+<% if user_signed_in? %>
+    <% if current_user.admin? %>
+        <div >hi Admin</div>
+    <% else %>
+        <div >hi User</div>
+    <% end %>
+<% else %>
+    <div >you need to signin</div>
+<% end %>
