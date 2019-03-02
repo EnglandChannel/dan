@@ -25,9 +25,9 @@
   .interested {
     text-align: center;
     a {
-      background-color: $navbarColor;
+      background-color: $defaultTextColor;
       padding: 10px;
-      color: white;
+      color: $navbarColor;
       border-radius: 10px;
       &:hover {
         background-color: black;
