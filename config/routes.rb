@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get 'hobby'
-      get 'study'
-      get 'team'
+      get 'phone'
+      get 'laptop'
+      get 'headphone'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

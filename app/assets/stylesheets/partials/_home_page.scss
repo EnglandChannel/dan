@@ -24,13 +24,17 @@
       li, li a {
         color: black;
         text-decoration: none;
+
+        i {
+          text-align: center;
+        }
       }
       li:hover {
         border-radius: 50px;
-        background: $navbarColor;
+        background: $defaultTextColor;
       }
       li:hover a, li:hover i {
-        color: white;
+        color: $navbarColor;
       }
     }
   }

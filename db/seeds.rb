@@ -7,22 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
    
   def seed_categories
-    hobby = ['Arts', 'Crafts', 'Sports', 'Sciences', 'Collecting', 'Reading', 'Other']
-    study = ['Arts and Humanities', 'Physical Science and Engineering', 'Math and Logic',
-            'Computer Science', 'Data Science', 'Economics and Finance', 'Business',
-            'Social Sciences', 'Language', 'Other']
-    team = ['Study', 'Development', 'Arts and Hobby', 'Other']
+    phone = ['Apple', 'SamSung', 'XiaoMi', 'LG', 'Nokia', 'Sony', 'BlackBerry']
+    laptop = ['Apple', 'Dell', 'Acer', 'Asus', 'Intel', 'HP', 'MSi']
+    headphone = ['Apple', 'Sony', 'Sennheiser', 'Beat', 'XiaoMi', 'Sonic', 'Logitech']
   
-    hobby.each do |name|
-      Category.create(branch: 'hobby', name: name)
+    phone.each do |name|
+      Category.create(branch: 'phone', name: name)
     end
   
-    study.each do |name|
-      Category.create(branch: 'study', name: name)
+    laptop.each do |name|
+      Category.create(branch: 'laptop', name: name)
     end
   
-    team.each do |name|
-      Category.create(branch: 'team', name: name)
+    headphone.each do |name|
+      Category.create(branch: 'headphone', name: name)
     end
   end
   
