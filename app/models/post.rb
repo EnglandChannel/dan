@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   default_scope -> { includes(:user).order(created_at: :desc) }
 
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
-  validates :content, presence: true, length: { minimum: 20, maximum: 1000 }
+  validates :imagelink, presence: true, length: { minimum: 20, maximum: 1000 }
   validates :category_id, presence: true
 
   scope :by_category, -> (branch, category_name) do 

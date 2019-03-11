@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :redirect_if_not_signed_in, only: [:new]
 
     def post_params
-        params.require(:post).permit(:content, :title, :category_id)
+        params.require(:post).permit(:title, :imagelink, :price, :category_id)
                              .merge(user_id: current_user.id)
     end
 
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.new(post_params)
-        if @post.save 
+        if @post.save
           redirect_to post_path(@post) 
         else
           redirect_to root_path
