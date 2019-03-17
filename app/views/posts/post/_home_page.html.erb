@@ -1,14 +1,18 @@
-<div class="col-sm-3 single-post-card" id=<%= post_path(post.id) %>>
+<div class="col-sm-2 single-post-card" id=<%= post_path(post.id) %>>
   <div class="card">
     <div class="card-block">
-      <h4 class="post-text">
-        <%= truncate(post.title, :length => 60) %>
-        <h4><%= post.price %>$</h4>
-      </h4>
+      <div class=post-image>
+        <%= image_tag(post.image_url) if post.image? %>
+      </div>
+      <div class="post-text">
+        <h4><%= truncate(post.title, :length => 60) %></h4>
+        <p><%= post.price %>₫</p>
+      </div>
       <div class="post-content">
         <div class="posted-by">Posted by <%= post.user.name %></div>
+        <%= image_tag(post.image_url.to_s) if post.image? %>
         <h3><%= post.title %></h3> 
-        <p><%= post.imagelink %></p>
+        <p><%= post.info %></p>
         <h4><%= post.price %></h4>
         <%= link_to "view", post_path(post.id), class: 'interested' %>
       </div>

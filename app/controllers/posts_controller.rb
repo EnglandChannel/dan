@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :redirect_if_not_signed_in, only: [:new]
 
     def post_params
-        params.require(:post).permit(:title, :imagelink, :price, :category_id)
+        params.require(:post).permit(:title, :info, :image, :price, :category_id)
                              .merge(user_id: current_user.id)
     end
 
@@ -18,6 +18,23 @@ class PostsController < ApplicationController
           redirect_to post_path(@post) 
         else
           redirect_to root_path
+        end
+    end
+    
+    def update
+        @post.update(product_params)
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        if @post.present?
+        @post.destroy
+        end
+        
+        respond_to do |format|
+            format.html { redirect_to post_url }
+            format.json { head :no_content }
+            format.js   { render :layout => false }
         end
     end
 
@@ -57,4 +74,6 @@ class PostsController < ApplicationController
         format.js { render partial: 'posts/posts_pagination_page' }
     end
 
+    def edit
+    end
 end

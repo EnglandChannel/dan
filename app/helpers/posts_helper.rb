@@ -1,4 +1,12 @@
 module PostsHelper
+    def is_admin
+      if user_signed_in? && current_user.admin?
+        'posts/branch/create_new_post/signed_in'
+      else
+        'shared/empty_partial'
+      end
+    end
+
     def create_new_post_partial_path
       if user_signed_in?
         'posts/branch/create_new_post/signed_in'

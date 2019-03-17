@@ -12,24 +12,58 @@
 }
 
 .single-post-card {
-    min-height: 135px;
-    max-height: 135px;
+    min-height: 280px;
+    max-height: 280px;
     color: $defaultTextColor;
     padding: 10px;
-    text-align: left;
-    transition: border 0.1s, background 0.3s;
+    text-align: center;
     .post-text {
       overflow: hidden;
+      font-size: 1.1em;
+      h4 {
+        font-size: 1em;
+        transition: color 0.2s;
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 6px;
+        color: $priceTextColor;
+        font-weight: 700;
+        border-radius: 50px;
+        transition: background 0.2s;
+      }
     }
     a, a:active, a:hover {
       color: black;
     }
     &:hover {
       cursor: pointer;
-      background: #f5f5f5;
+      p {
+        background: $priceTextColor;
+        color: $navbarColor;
+      }
+      h4 {
+        color: #1191f8;
+      }
+      .post-image {
+        width: 175px;
+        height: 175px;
+      }
     }
   }
   
+  .post-image {
+    width: 165px;
+    height: 165px;
+    display: block;
+    margin: 0 auto;
+    transition: width 0.2s, height 0.2s;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
   .post-content {
     display: none;
   }

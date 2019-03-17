@@ -5,8 +5,10 @@ class Post < ApplicationRecord
   default_scope -> { includes(:user).order(created_at: :desc) }
 
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
-  validates :imagelink, presence: true, length: { minimum: 20, maximum: 1000 }
+  validates :info, presence: true, length: { minimum: 20, maximum: 1000 }
   validates :category_id, presence: true
+
+  mount_uploader :image, ImageUploader
 
   scope :by_category, -> (branch, category_name) do 
     joins(:category).where(categories: {name: category_name, branch: branch}) 

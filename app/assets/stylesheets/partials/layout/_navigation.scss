@@ -3,8 +3,17 @@ body {
 }
 
 nav {
-  .col-sm-5, .col-sm-7 {
+  .col-sm-1, .col-sm-7, .col-sm-4 {
     padding: 0;
+  }
+
+  .col-sm-7 {
+    .nav-item {
+      display: inline;
+      &:hover {
+        color: $navbarColor;
+      }
+    }
   }
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12);
     

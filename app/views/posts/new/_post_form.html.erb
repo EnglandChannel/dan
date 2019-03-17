@@ -7,7 +7,10 @@
                         minlength: 5,
                         maxlength: 100 %>
     <%= f.hidden_field :branch, :value => @branch %>
-    <%= f.text_area :imagelink, 
+    <div class="field">
+        <%= f.file_field :image %>
+    </div>
+    <%= f.text_area :info, 
                     rows: 6,
                     required: true, 
                     minlength: 20,

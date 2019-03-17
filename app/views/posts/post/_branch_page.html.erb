@@ -1,10 +1,35 @@
 <div class="single-post-list" id=<%= post_path(post.id) %>>
-  <%= truncate(post.title, :length => 60) %>
-  <div class="post-content">
-    <div class="posted-by">Posted by <%= post.user.name %></div>
-    <h3><%= post.title %></h3> 
-    <p><%= post.imagelink %></p>
-    <p><%= post.price %></p>
-    <%= link_to "I'm interested", post_path(post.id), class: 'interested' %> 
+  <div class ="col-sm-11 post-list">
+    <%= image_tag(post.image_url.to_s) if post.image? %>
+    <p id="title"><%= truncate(post.title, :length => 60) %></p>
+    <p><%= post.price %>₫</p>
+
+    <div class="post-content">
+      <div class="posted-by">Posted by <%= post.user.name %></div>
+      <%= image_tag(post.image_url.to_s) if post.image? %>
+      <h3><%= post.title %></h3>
+      <p><%= post.info %></p>
+      <p><%= post.price %>₫</p>
+      <%= link_to "I'm interested", post_path(post.id), class: 'interested' %>
+    </div>
   </div>
+  
+  <div class ="col-sm-1">
+    <% if user_signed_in? && current_user.admin? %>
+      
+      <!--delete post-->
+      <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' },
+        :remote => true, :class => 'delete_post' do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+
+      <!--edit post-->
+      <%= link_to edit_post_path(post), :class => 'edit_post' do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+
+    <% end %>
+  </div>
+  
+  
 </div>
