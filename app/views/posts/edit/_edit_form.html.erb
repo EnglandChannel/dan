@@ -1,0 +1,29 @@
+<%= bootstrap_form_for(@post) do |f| %>
+    <%= f.text_field  :title, 
+                        maxlength: 100, 
+                        placeholder: 'Title', 
+                        class: 'form-control',
+                        required: true, 
+                        minlength: 5,
+                        maxlength: 100 %>
+    <%= f.hidden_field :branch, :value => @branch %>
+    <div class="field">
+        <%= f.file_field :image %>
+    </div>
+    <%= f.cktext_area :info, 
+                    rows: 10,
+                    required: true, 
+                    minlength: 10,
+                    maxlength: 1000,
+                    placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.', 
+                    class: 'form-control' %>
+    <%= f.text_field  :price, 
+                    maxlength: 100, 
+                    placeholder: 'Price', 
+                    class: 'form-control',
+                    required: true, 
+                    minlength: 0,
+                    maxlength: 100 %>
+    <%= f.collection_select :category_id, @categories, :id, :name, class: 'form-control' %>
+    <%= f.submit "Save", class: 'form-control' %>
+<% end %>

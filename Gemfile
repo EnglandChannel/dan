@@ -69,3 +69,6 @@ gem 'devise'
 gem 'faker'
 gem 'will_paginate', '~> 3.1.0'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor'
+gem "administrate"

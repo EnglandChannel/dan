@@ -20,9 +20,16 @@ class PostsController < ApplicationController
           redirect_to root_path
         end
     end
+
+    def edit
+        @post = Post.find(params[:id])
+        @categories = Category.where(branch: (Category.find(@post.category_id)).branch)
+    end
     
     def update
-        @post.update(product_params)
+        @post = Post.find(params[:id])
+        @post.update(post_params)
+        redirect_to post_path
     end
 
     def destroy
@@ -72,8 +79,5 @@ class PostsController < ApplicationController
     respond_to do |format|
         format.html
         format.js { render partial: 'posts/posts_pagination_page' }
-    end
-
-    def edit
     end
 end

@@ -2,7 +2,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
   def change
     create_table :posts do |t|
       t.string :title
-      t.text :imagelink
+      t.text :info
       t.decimal :price
       t.belongs_to :category, index: true
       t.belongs_to :user, index: true

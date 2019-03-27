@@ -3,11 +3,18 @@
   text-align: center;
   background-color: white !important;
   font-weight: bold;
+  text-decoration: none;
   a {
-    color: black;
+    font-size: .8em;
+    padding: 4px 36px 4px 36px;
+    color: $priceTextColor;
+    border: 2px solid $priceTextColor;
+    border-radius: 100px;
+    transition: color .2s, background .2s;
   }
   a:hover {
-    text-decoration: underline;
+    color: #fff;
+    background: $priceTextColor;
   }
 }
 
@@ -46,8 +53,8 @@
         color: #1191f8;
       }
       .post-image {
-        width: 175px;
-        height: 175px;
+        width: 172px;
+        height: 172px;
       }
     }
   }
