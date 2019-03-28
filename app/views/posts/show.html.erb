@@ -9,15 +9,15 @@
 
       <% if user_signed_in? && current_user.admin? %>
         <!--edit post-->
-        <%= link_to edit_post_path(@post), :class => 'edit_post' do %>
+        <%= link_to edit_admin_post_path(@post), :class => 'edit_post' do %>
           <i class="fas fa-edit"></i>
         <% end %>
         
-        <!--delete post-->
+        <!--delete post
         <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' },
           :remote => true, :class => 'delete_post' do %>
           <i class="fas fa-trash-alt"></i>
-        <% end %>
+        <% end %>-->
 
       <% end %>
 

@@ -12,12 +12,17 @@ class PostDashboard < Administrate::BaseDashboard
     category: Field::BelongsTo,
     id: Field::Number,
     title: Field::String,
-    info: Field::Text,
+    info: Field::Ckeditor,
     price: Field::String.with_options(searchable: false),
     amount: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image: Field::String,
+    image: Field::Carrierwave.with_options(
+      image: :standard,
+      image_on_index: true,
+      remove: false,
+      remote_url: false
+    )
   }.freeze
 
   # COLLECTION_ATTRIBUTES

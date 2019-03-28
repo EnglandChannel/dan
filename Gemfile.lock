@@ -55,6 +55,13 @@ GEM
       momentjs-rails (~> 2.8)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+    administrate-field-carrierwave (0.4.0)
+      administrate (< 1.0.0)
+      rails (>= 4.2, < 6)
+    administrate-field-ckeditor (0.0.9)
+      administrate (>= 0.3, < 1.0)
+      ckeditor (~> 4.1)
+      rails (>= 4.2, < 6.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -291,6 +298,8 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  administrate-field-carrierwave (~> 0.4.0)
+  administrate-field-ckeditor (~> 0.0.9)
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.3.6)
   bootstrap_form

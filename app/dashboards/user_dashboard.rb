@@ -7,6 +7,10 @@ class UserDashboard < Administrate::BaseDashboard
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
+  def display_resource(user)
+    user.name
+  end
+
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
     id: Field::Number,

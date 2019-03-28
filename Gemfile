@@ -71,4 +71,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
+
 gem "administrate"
+gem 'administrate-field-carrierwave', '~> 0.4.0'
+gem "administrate-field-ckeditor", "~> 0.0.9"

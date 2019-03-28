@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :posts
 
-      root to: "users#index"
+      root to: "posts#index"
     end
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => {:registrations => "registrations"}
