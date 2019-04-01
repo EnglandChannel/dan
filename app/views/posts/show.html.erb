@@ -6,6 +6,7 @@
       <h3><%= @post.info.html_safe %></h3>
       <p><%= @post.title %></p>
       <h4><%= @post.price %>₫</h4>
+      <%= button_to 'Add to Cart', line_items_path(:post_id => @post) %>
 
       <% if user_signed_in? && current_user.admin? %>
         <!--edit post-->
