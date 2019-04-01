@@ -26,7 +26,7 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     post = Post.find(params[:post_id])
-    @line_item = @cart.line_items.build(:post_id => post.id)
+    @line_item = @cart.add_post(post.id)
 
     respond_to do |format|    
       if @line_item.save

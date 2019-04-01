@@ -16,7 +16,6 @@
   
   <div class ="col-sm-1">
     <% if user_signed_in? && current_user.admin? %>
-      
       <!--delete post
       <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' },
         :remote => true, :class => 'delete_post' do %>

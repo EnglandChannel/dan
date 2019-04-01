@@ -16,6 +16,9 @@ class CategoryDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
   }.freeze
 
+  def display_resource(category)
+    category.name
+  end
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
   #
