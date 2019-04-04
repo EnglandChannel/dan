@@ -1,0 +1,21 @@
+<div class="product">
+    <div class="product-image">
+        <%= image_tag(line_item.post.image_url.to_s) if line_item.post.image? %>
+    </div>
+    <div class="product-details">
+        <div class="product-title"><%= line_item.post.title %></div>
+    </div>
+    <div class="product-price"><%= number_to_currency(line_item.post.price) %></div>
+    <div class="product-quantity">
+        <input type="number" value="<%= line_item.quantity %>" min="1" max="<%= line_item.post.amount %>">
+    </div>
+    <div class="product-removal">
+        <%= link_to 'Xoá',
+         line_item_path(line_item), 
+         method: :delete, 
+         data: {confirm: 'Bạn có chắc không?', 
+         remote: true}, 
+         class: 'remove-product' %>
+    </div>
+    <div class="product-line-price"><%= number_to_currency(line_item.total_price) %></div>
+</div>

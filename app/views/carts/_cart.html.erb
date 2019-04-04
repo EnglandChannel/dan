@@ -1,0 +1,30 @@
+<h1>Giỏ hàng của bạn</h1>
+
+<div class="shopping-cart">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+  
+</div>
+
+
+<table>
+    <%= render cart.line_items %>
+    <div class="totals">
+      <div class="totals-item">
+          <label>Total</label>
+          <div class="totals-value" id="cart-subtotal"><%= number_to_currency(cart.total_price) %></div>
+      </div>
+    </div>
+</table>
+ 
+<%= button_to 'Empty cart', 
+              cart, 
+              :method => :delete,
+              data: {:confirm => 'Are you sure?' } %>
