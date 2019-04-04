@@ -1,6 +1,13 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
+  
+  def current_cart
+    Cart.find(session[:cart_id])
+rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
+end
   # GET /carts
   # GET /carts.json
   def index
@@ -13,6 +20,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @cart = current_cart
   end
 
   # GET /carts/new

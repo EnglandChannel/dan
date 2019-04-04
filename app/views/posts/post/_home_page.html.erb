@@ -1,5 +1,5 @@
 <div class="col-sm-2 single-post-card" id=<%= post_path(post.id) %>>
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-block">
       <div class=post-image>
         <%= image_tag(post.image_url) if post.image? %>
@@ -17,5 +17,33 @@
         <%= link_to "view", post_path(post.id), class: 'interested' %>
       </div>
     </div>
-  </div><!-- card -->
+    
+    <%= button_to 'Add to Cart', 
+                  line_items_path(:post_id => post), 
+                  :remote => true,
+                  class: 'add-to-cart',
+                  :onclick => "alert('Đã thêm vào giỏ')" %>
+
+  </div>card -->
+
+  <div class="product-card">
+    <h4><%= truncate(post.title, :length => 30) %></h4>
+    <div id="view_details">
+      <%= link_to "chi tiết", post_path(post.id) %>
+    </div>
+    <div id="add-to-cart">
+      <%= button_to 'thêm vào giỏ', 
+                  line_items_path(:post_id => post), 
+                  :remote => true,
+                  class: 'add-to-cart',
+                  :onclick => "alert('Đã thêm vào giỏ')" %>
+    </div>
+    <figure>
+      <%= image_tag(post.image_url) if post.image? %>
+    </figure>
+    <span class="price">
+      <%= number_to_currency(post.price) %>
+    </span>
+  </div>
 </div><!-- col-sm-3 -->
+
