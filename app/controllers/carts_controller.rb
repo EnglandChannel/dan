@@ -1,13 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   
-  def current_cart
-    Cart.find(session[:cart_id])
-rescue ActiveRecord::RecordNotFound
-    cart = Cart.create
-    session[:cart_id] = cart.id
-    cart
-end
   # GET /carts
   # GET /carts.json
   def index
@@ -36,6 +29,7 @@ end
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
+    session[:cart_id] = cart.id
 
     respond_to do |format|
       if @cart.save
@@ -69,7 +63,7 @@ end
     @cart.destroy
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

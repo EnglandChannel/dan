@@ -59,13 +59,14 @@
     cursor:pointer;
 
     #view_details {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       position:absolute;
       width:100%;
       font-weight:700;
       text-transform:uppercase;
       margin:30% 0 0 ;
-      
+      transition: visibility 0s, opacity 250ms ease-out;
       a {
         font-size:.9em;
         color: #5f6368;
@@ -75,11 +76,13 @@
     }
 
     #add-to-cart {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       position:absolute;
       width:100%;
       padding:0px;
       margin:60% 0 0 ;
+      transition: visibility 0s, opacity 250ms ease-out;
       input {
         font-size: .9em;
         font-weight:700;
@@ -157,11 +160,13 @@
     }
 
     &:hover #view_details {
-      display: block;
+      visibility: visible;
+      opacity: 1;
       z-index: 10;
     }
     &:hover #add-to-cart {
-      display: block;
+      visibility: visible;
+      opacity: 1;
       z-index: 10;
     }
     &:hover figure{

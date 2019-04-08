@@ -7,7 +7,7 @@
     </div>
     <div class="product-price"><%= number_to_currency(line_item.post.price) %></div>
     <div class="product-quantity">
-        <input type="number" value="<%= line_item.quantity %>" min="1" max="<%= line_item.post.amount %>">
+        <%= line_item.quantity %>
     </div>
     <div class="product-removal">
         <%= link_to 'Xoá',

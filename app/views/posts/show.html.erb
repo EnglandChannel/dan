@@ -1,27 +1,25 @@
-<div id="single-post-content" class="container">
+<div id="single-post-content">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="posted-by">Posted by <%= @post.user.name %></div>
       <%= image_tag(@post.image_url.to_s) if @post.image? %>
-      <h3><%= @post.info.html_safe %></h3>
-      <p><%= @post.title %></p>
-      <h4><%= @post.price %>₫</h4>
-      <%= button_to 'Add to Cart', line_items_path(:post_id => @post) %>
+      <div class="product-details">
+        <h3><%= @post.info.html_safe %></h3>
+        <p><%= @post.title %></p>
+        <h4><%= @post.price %>₫</h4>
+        <%= button_to 'Add to Cart', line_items_path(:post_id => @post) %>
 
-      <% if user_signed_in? && current_user.admin? %>
-        <!--edit post-->
-        <%= link_to edit_admin_post_path(@post), :class => 'edit_post' do %>
-          <i class="fas fa-edit"></i>
+        <% if user_signed_in? && current_user.admin? %>
+          <!--edit post-->
+          <%= link_to edit_admin_post_path(@post), :class => 'edit_post' do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          
+          <!--delete post
+          <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' },
+            :remote => true, :class => 'delete_post' do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>-->
+
         <% end %>
-        
-        <!--delete post
-        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' },
-          :remote => true, :class => 'delete_post' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>-->
-
-      <% end %>
-
-    </div>
+      </div>
   </div><!-- row -->
 </div>

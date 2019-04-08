@@ -1,17 +1,21 @@
 #single-post-content {
+    padding: 50px 16% 0 16%;
     background: white;
     height: calc(100vh - 50px);
-  
-    h3 { 
-      text-align: center;
+
+    img {
+      margin-top: 10px;
+      position:absolute;
+      width: 25%;
     }
-    p {
-      margin: 50px 0;
-    }
-    .posted-by {
-      font-size: 12px;
-      font-size: 1.2rem;
-      margin: 20px 0;
-      color: rgba(0,0,0,0.5);
+
+    .product-details {
+      float: right;
+      h3 { 
+        text-align: center;
+      }
+      p {
+        margin: 50px 0;
+      }
     }
   }
