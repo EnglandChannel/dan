@@ -1,4 +1,5 @@
 class LineItem < ApplicationRecord
+    belongs_to :order, optional: true
     belongs_to :post
     belongs_to :cart
 
