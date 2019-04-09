@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = cart.id
         cart
     end
+
+    helper_method :current_cart
     
     def redirect_if_not_signed_in
         redirect_to root_path if !user_signed_in?

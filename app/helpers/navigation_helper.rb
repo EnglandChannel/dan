@@ -15,6 +15,16 @@ module NavigationHelper
         end
     end
 
+    def cart_count_over_one
+        if current_cart
+            if current_cart.line_items.length > 0
+                return current_cart.line_items.length
+            else
+                return 0
+            end
+        end
+    end
+
     def create_cart
         Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound

@@ -1,3 +1,6 @@
 $('.remove-product').bind('ajax:success', function() {
     $(this).closest('.product').fadeOut();
 });
+
+/*
+$('#cart-subtotal').text("<%= number_to_currency(cart.total_price) %>");*/
