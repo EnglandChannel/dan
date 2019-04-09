@@ -28,9 +28,10 @@ class LineItemsController < ApplicationController
     post = Post.find(params[:post_id])
     @line_item = @cart.add_post(post.id)
 
-    respond_to do |format|    
+    respond_to do |format|   
       if @line_item.save
-        format.js { @current_item = @line_item }
+        format.html { redirect_to(@line_item.cart) }
+        format.js
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
