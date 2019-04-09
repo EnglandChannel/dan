@@ -15,10 +15,16 @@ module NavigationHelper
         end
     end
 
+    def total_price
+        if current_cart
+            return current_cart.line_items.to_a.sum { |item| item.total_price }
+        end
+    end
+
     def cart_count_over_one
         if current_cart
             if current_cart.line_items.length > 0
-                return current_cart.line_items.length
+                return current_cart.line_items.to_a.sum { |item| item.total_quantity }
             else
                 return 0
             end

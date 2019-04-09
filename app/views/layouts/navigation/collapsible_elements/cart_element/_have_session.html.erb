@@ -1,6 +1,10 @@
 <li class="nav-item">
     <%= link_to cart_path(session[:cart_id]) do %>
-        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span id="cart-icon">(<%= cart_count_over_one %>)</span>
+        <span>
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        </span>
+        <span id="cart-icon">
+            <%= cart_count_over_one %>
+        </span>
     <% end %>
 </li>
