@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+    belongs_to :user
     has_many :line_items, :dependent => :destroy
     PAYMENT_TYPES = [ "Thanh toán khi nhận hàng", "Thẻ ngân hàng" ]
     validates :name, :address, :email, :pay_type, :presence => true

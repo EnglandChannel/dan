@@ -13,6 +13,7 @@ class UserDashboard < Administrate::BaseDashboard
 
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
+    orders: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     email: Field::String,
@@ -44,7 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :encrypted_password,
+    :orders,
     :reset_password_token,
     :reset_password_sent_at,
     :remember_created_at,
@@ -60,7 +61,6 @@ class UserDashboard < Administrate::BaseDashboard
     :posts,
     :name,
     :email,
-    :encrypted_password,
     :reset_password_token,
     :reset_password_sent_at,
     :remember_created_at,

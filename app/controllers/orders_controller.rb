@@ -36,7 +36,6 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         session[:cart_id] = nil
-
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @order }
       else
@@ -79,5 +78,6 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
+                            .merge(user_id: current_user.id)
     end
 end
