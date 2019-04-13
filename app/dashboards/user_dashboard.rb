@@ -46,8 +46,6 @@ class UserDashboard < Administrate::BaseDashboard
     :name,
     :email,
     :orders,
-    :reset_password_token,
-    :reset_password_sent_at,
     :remember_created_at,
     :created_at,
     :updated_at,
@@ -61,8 +59,6 @@ class UserDashboard < Administrate::BaseDashboard
     :posts,
     :name,
     :email,
-    :reset_password_token,
-    :reset_password_sent_at,
     :remember_created_at,
     :admin,
   ].freeze

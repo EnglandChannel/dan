@@ -11,7 +11,13 @@
         <th colspan="2">Quantity</th>
         <th>Description</th>
     </tr>
-    <%= render @order.line_items %>
+    <% @order.line_items.each do |item| %>
+        <tr>
+            <td><%= item.quantity %> x </td>
+            <td><%= item.post.title %></td>
+            <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+        </tr>
+    <% end %>
 </table>
  
 <p>Your payment type: <b><%= @order.pay_type %></b></p>

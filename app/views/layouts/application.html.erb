@@ -12,5 +12,6 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= yield %>
+    <%= line_chart Cart.group_by_day(:created_at).count %>
   </body>
 </html>

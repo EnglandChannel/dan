@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require Chart.bundle
+//= require chartkick
 //= require ckeditor/init
 //= require_tree .
 //= require bootstrap-sprockets

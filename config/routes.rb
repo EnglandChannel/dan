@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :orders
       resources :carts
       resources :line_items
-      root to: "posts#index"
+      root to: "users#index"
     end
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => {:registrations => "registrations"}

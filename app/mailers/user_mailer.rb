@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'davithau987654321.dh@gmail.com'
  
   def welcome_email user
     @user = user
@@ -8,8 +8,7 @@ class UserMailer < ApplicationMailer
 
   def order_received(order)
     @order = order 
-
-    mail :to => @order.email, :subject => "We've received your order"
+    mail(to: @order.email, subject: "We've received your order")
   end
 
 end
