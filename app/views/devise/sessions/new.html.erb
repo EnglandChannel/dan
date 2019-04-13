@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-sm-offset-4 col-sm-4">
       <h2 class="text-center">Log in</h2>
       
         <%= bootstrap_form_for(resource, 
@@ -17,7 +17,10 @@
                               class: 'form-control',
                               placeholder: 'password' %>
 
-
+        <% if flash[:alert] %>
+          <p class="alert"><%= flash[:alert] %></p>
+        <% end %>
+        
         <% if devise_mapping.rememberable? -%>
           <%= f.check_box :remember_me %>
         <% end -%>

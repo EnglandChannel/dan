@@ -76,3 +76,5 @@ gem 'ckeditor'
 gem "administrate"
 gem 'administrate-field-carrierwave', '~> 0.4.0'
 gem "administrate-field-ckeditor", "~> 0.0.9"
+
+gem "spring", group: :development

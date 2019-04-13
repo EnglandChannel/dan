@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PostDashboard < Administrate::BaseDashboard
+class CartDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,71 +8,48 @@ class PostDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo,
-    category: Field::BelongsTo,
+    line_items: Field::HasMany,
     id: Field::Number,
-    title: Field::String,
-    info: Field::Ckeditor,
-    price: Field::String.with_options(searchable: false),
-    amount: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image: Field::Carrierwave.with_options(
-      image: :standard,
-      image_on_index: true,
-      remove: false,
-      remote_url: false
-    )
   }.freeze
 
-  def display_resource(post)
-    post.title
+  def display_resource(cart)
+    cart.id
   end
-  
+
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :line_items,
     :id,
-    :title,
-    :price,
-    :category,
-    :amount,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :category,
+    :line_items,
     :id,
-    :title,
-    :info,
-    :price,
-    :amount,
     :created_at,
     :updated_at,
-    :image,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :title,
-    :category,
-    :info,
-    :price,
-    :amount,
-    :image,
+    :line_items,
   ].freeze
 
-  # Overwrite this method to customize how posts are displayed
+  # Overwrite this method to customize how carts are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(post)
-  #   "Post ##{post.id}"
+  # def display_resource(cart)
+  #   "Cart ##{cart.id}"
   # end
 end

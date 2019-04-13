@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       resources :users
       resources :categories
       resources :posts
-
+      resources :orders
+      resources :carts
+      resources :line_items
       root to: "posts#index"
     end
   mount Ckeditor::Engine => '/ckeditor'

@@ -1,37 +1,56 @@
-<%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="container" id="user-edit-form">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      <%= bootstrap_form_with(model: order, local: true) do |f| %>
+        <% if order.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <% if user_signed_in? %>
+
+          <%= f.text_field :name, 
+                  placeholder: 'name', 
+                  :value => current_user.name,
+                  class: 'form-control' %>
+
+          <%= f.email_field :email,
+                  class: 'form-control',
+                  :value => current_user.email, 
+                  placeholder: 'email' %>
+
+        <% else %>
+
+          <%= f.text_field :name, 
+                  placeholder: 'name', 
+                  class: 'form-control' %>
+
+          <%= f.email_field :email,
+                  class: 'form-control', 
+                  placeholder: 'email' %>
+
+        <% end %>
+
+        <%= f.text_area :address, 
+                        placeholder: 'address', 
+                        :rows => 6, 
+                        class: 'form-control' %>
+
+        <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select a payment method' %>
+
+        <div class="actions">
+          <%= f.submit 'Đặt hàng'%>
+        </div>
       <% end %>
-      </ul>
+
+      <%= link_to "Back", root_path %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, :size => 40 %>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address, :cols => 40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, :size => 40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select a payment method' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Đặt hàng' , :onclick => "alert('Cảm ơn bạn vì đã mua hàng')"%>
-  </div>
-<% end %>
+</div>
