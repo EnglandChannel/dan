@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.add_line_items_from_cart(current_cart)
+    @order.add_line_items_from_cart(current_cart, @order)
     respond_to do |format|
       if @order.save
         session[:cart_id] = nil

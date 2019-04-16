@@ -12,6 +12,6 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= yield %>
-    <%= line_chart Cart.group_by_day(:created_at).count %>
+    <%= line_chart Revenue.group_by_day(:created_at, last: 7).sum(:price) %>
   </body>
 </html>
