@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     collection do
       get 'phone'
       get 'laptop'
-      get 'headphone'
     end
   end
 

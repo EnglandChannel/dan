@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         session[:cart_id] = nil
-        UserMailer.order_received(@order).deliver!
+        UserMailer.order_received(@order).deliver_now
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @order }
       else

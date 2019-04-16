@@ -1,24 +1,2 @@
-<h3>Books Store</h3>
-<p>
-    Dear <b><%= @order.name %></b>,
-</p>
- 
-<p>
-    Thank you for your order, your items:
-</p>
-<table>
-    <tr>
-        <th colspan="2">Quantity</th>
-        <th>Description</th>
-    </tr>
-    <% @order.line_items.each do |item| %>
-        <tr>
-            <td><%= item.quantity %> x </td>
-            <td><%= item.post.title %></td>
-            <td class="item_price"><%= number_to_currency(item.total_price) %></td>
-        </tr>
-    <% end %>
-</table>
- 
-<p>Your payment type: <b><%= @order.pay_type %></b></p>
-<p>Thanks for shopping with <b>Books Store<b> and best regards.</p>
+Hi <%= @order.email %>
+Sample mail sent using smtp.
