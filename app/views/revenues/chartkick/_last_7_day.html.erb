@@ -1,0 +1,1 @@
+<%= area_chart Revenue.group_by_day(:created_at, last: 7).sum(:price) , height: "200px" %>

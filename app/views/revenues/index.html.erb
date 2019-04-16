@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <section class="page-name">
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+            <time><%= Time.now.strftime("%B %d, %Y") %></time>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="metrics-today">
+        <div class="row">  
+            <!-- Total Revenue -->
+            <div class="metrics col-xs-6 col-sm-3">
+            <div class="primary-num">
+                <%= number_to_currency(Revenue.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).to_a.sum(&:price)) %>
+            </div>
+            <div class="subtitles">
+                <span class="secondary-num"><%= Revenue.distinct.pluck(:order_id).count %></span>
+                <span>Phiên giao dịch</span>
+            </div>
+            </div><!-- ./total revenue -->
+
+            <!-- New Users -->
+            <div class="metrics col-xs-6 col-sm-3">
+            <div class="primary-num"><%= User.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count %></div>
+            <div class="subtitles">
+                <span>Người dùng mới</span>
+            </div>
+            </div><!-- ./new users -->
+
+        </div><!-- ./row -->
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <span>7 ngày gần nhất</span>
+                    <%= render chart_last_7_days %>
+                </div>
+                <div class="col-sm-4">
+                    <span>Theo tuần</span>
+                    <%= render chart_weekly %>
+                </div>
+                <div class="col-sm-4">
+                    <span>Theo tháng</span>
+                    <%= render chart_monthly %>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+</div>

@@ -1,0 +1,93 @@
+// Imports
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700)
+
+// Mixins
+=absolute($top, $left, $right, $bottom)
+  position: absolute
+  top: $top
+  left: $left
+  right: $right
+  bottom: $bottom
+
+=translate($x,$y)
+  -webkit-transform: translate($x,$y)
+  -webkit-transform: translate3d($x,$y,0)
+  -ms-transform: translate($x,$y)
+  -ms-transform: translate3d($x,$y,0)
+  transform: translate($x,$y)
+  transform: translate3d($x,$y,0)
+
+// Variables
+$font-family: "Roboto", Helvetica, Arial, sans-serif
+
+// Colors
+$dkBlack: #111111
+$black: #212324
+$ltBlack: #262729
+$ltltBlack: #282D31
+$dkGrey: #282c2d
+$grey: #a3a3a3
+$ltGrey: #b7b7b7
+$red: #EA5B5B
+$yellow: #FFF961
+$orange: #FF942A
+$pink: #EB689A
+$green: #5BD45C
+$blue: #5EB5E8
+$teal: #5BD4B4
+$white: #f7f7f7
+$purple: rgba(232, 132, 255, 1)
+$jam: rgba(241, 0, 88, 1)
+$flYellow: rgba(236, 255, 0, 1)
+
+// Base
+
+.wrapper
+  font-size: 16px  // rem definition
+  hr
+    padding-top: 16px
+  .page-name
+  padding: 30px 0
+  
+  time
+    margin-bottom: 20px
+    font:
+      size: 2rem
+    
+    
+  .page-header
+    margin: 0 0 4px 0
+    padding: 0
+    font:
+      weight: 300
+    text:
+      transform: uppercase
+    border: none
+    
+  .metrics
+        
+    .primary-num
+      font:
+        size: 3rem
+      color: $orange
+    
+    .secondary-num
+      color: $orange
+      
+    .subtitles
+      font:
+        size: 1.3rem
+      text:
+        // transform: uppercase
+        
+    .learn-more-link
+      text-decoration: underline
+      color: $ltGrey
+    
+  .container-fluid
+    .row
+      .col-sm-4
+        text-align: center
+        color: #537ed4
+        span
+          margin: 0 0 20px
