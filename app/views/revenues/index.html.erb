@@ -17,7 +17,7 @@
                 <%= number_to_currency(Revenue.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).to_a.sum(&:price)) %>
             </div>
             <div class="subtitles">
-                <span class="secondary-num"><%= Revenue.distinct.pluck(:order_id).count %></span>
+                <span class="secondary-num"><%= Revenue.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).distinct.pluck(:order_id).count %></span>
                 <span>Phiên giao dịch</span>
             </div>
             </div><!-- ./total revenue -->
