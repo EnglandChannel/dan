@@ -1,31 +1,4 @@
 <div class="col-sm-2 single-post-card" id=<%= post_path(post.id) %>>
-  <!-- <div class="card">
-    <div class="card-block">
-      <div class=post-image>
-        <%= image_tag(post.image_url) if post.image? %>
-      </div>
-      <div class="post-text">
-        <h4><%= truncate(post.title, :length => 60) %></h4>
-        <p><%= post.price %>₫</p>
-      </div>
-      <div class="post-content">
-        <div class="posted-by">Posted by <%= post.user.name %></div>
-        <%= image_tag(post.image_url.to_s) if post.image? %>
-        <h3><%= post.title %></h3> 
-        <p><%= post.info %></p>
-        <h4><%= post.price %></h4>
-        <%= link_to "view", post_path(post.id), class: 'interested' %>
-      </div>
-    </div>
-    
-    <%= button_to 'Add to Cart', 
-                  line_items_path(:post_id => post), 
-                  :remote => true,
-                  class: 'add-to-cart',
-                  :onclick => "alert('Đã thêm vào giỏ')" %>
-
-  </div>card -->
-
   <div class="product-card">
     <h4><%= truncate(post.title, :length => 22) %></h4>
     <div id="view_details">

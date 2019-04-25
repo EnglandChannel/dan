@@ -1,18 +1,25 @@
-<h3>Dans Store</h3>
+<h3>Dan Store</h3>
 <p>
-    Dear <b><%= @order.name %></b>,
+    Gửi <b><%= @order.name %></b>,
 </p>
  
 <p>
-    Thank you for your order, your items:
+    Cảm ơn bạn vì đã đặt hàng, chi tiết:
 </p>
 <table>
     <tr>
-        <th colspan="2">Quantity</th>
-        <th>Description</th>
+        <th colspan="2">Mặt hàng</th>
+        <th>Giá</th>
     </tr>
+    
+    <% @order.line_items.each do |item| %>
     <tr>
+        <td><%= item.quantity %>x</td>
+        <td><%= item.post.title %></td>
+        <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+    </tr>
+    <% end %>
 </table>
  
-<p>Your payment type: <b><%= @order.pay_type %></b></p>
-<p>Thanks for shopping with <b>Books Store<b> and best regards.</p>
+<p>Phương thức thanh toán: <b><%= @order.pay_type %></b></p>
+<p>Cảm ơn vì đã mua hàng tại <b>Dan Store<b> thân ái.</p>

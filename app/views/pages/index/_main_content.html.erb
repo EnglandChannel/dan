@@ -1,4 +1,9 @@
 <div id="main-content" class="col-sm-12">
+  <div class="row">
+    <%= render @latest_posts %>
+    <%= render no_posts_partial_path(@phone_posts) %>
+  </div><!-- row -->
+  <hr>
   <h3 class="page-name"><%= link_to 'Điện thoại', phone_posts_path %></h3>
   <div class="row">
     <%= render @phone_posts %>

@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
   #
   def order_received(order)
     @order = order
-    mail(to: @order.email, subject: 'Sample Email')
+    mail(to: @order.email, subject: 'Chúng tôi đã nhận được đơn đặt hàng')
   end
 end
