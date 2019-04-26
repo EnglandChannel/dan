@@ -21,10 +21,6 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  database: dan_development
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -78,18 +74,21 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-development: 
+
+development:
+  <<: *default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: postgres
-  password: 123
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   database: development_db
 
-production: 
+production:
+  <<: *default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: postgres
-  password: 123
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   database: production_db

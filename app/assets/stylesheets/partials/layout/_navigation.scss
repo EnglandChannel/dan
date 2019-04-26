@@ -1,5 +1,6 @@
 body {
     margin-top: 50px;
+    font-family: "Open Sans",sans-serif;
 }
 
 nav {
@@ -15,8 +16,9 @@ nav {
       }
     }
   }
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12);
     
+  box-shadow:0 1px 6px 0 rgba(0,0,0,.3);
+
     .navbar-header {
       width: 100%;
       button, .navbar-brand {
@@ -76,6 +78,11 @@ nav {
   .dropdown-toggle, .dropdown-menu {
     background: $navbarColor !important;
     border: none;
+
+    #user-name {
+      font-weight: 700;
+      font-size: 1.1em
+    }
   }
   
   .dropdown-menu a:hover {
