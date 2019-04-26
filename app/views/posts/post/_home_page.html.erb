@@ -1,5 +1,6 @@
 <div class="col-sm-2 single-post-card" id=<%= post_path(post.id) %>>
   <div class="product-card">
+    
     <h4><%= truncate(post.title, :length => 22) %></h4>
     <div id="view_details">
       <%= link_to "chi tiết", post_path(post.id) %>
@@ -15,7 +16,7 @@
       <%= image_tag(post.image_url) if post.image? %>
     </figure>
     <span class="price">
-      <%= number_to_currency(post.price) %>
+      <%= number_to_currency(post.price, :locale => :vi) %>
     </span>
   </div>
 </div><!-- col-sm-3 -->

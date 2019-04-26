@@ -4,7 +4,7 @@
       <div class="product-details">
         <h3><%= @post.info.html_safe %></h3>
         <p><%= @post.title %></p>
-        <h4><%= @post.price %>₫</h4>
+        <h4><%= number_to_currency(@post.price, :locale => :vi) %></h4>
         <%= button_to 'Add to Cart', line_items_path(:post_id => @post) %>
 
         <% if user_signed_in? && current_user.admin? %>

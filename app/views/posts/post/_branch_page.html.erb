@@ -2,7 +2,7 @@
   <div class ="col-sm-11 post-list">
     <%= image_tag(post.image_url.to_s) if post.image? %>
     <p id="title"><%= truncate(post.title, :length => 60) %></p>
-    <p><%= post.price %>₫</p>
+    <p><%= number_to_currency(post.price, :locale => :vi) %></p>
 
     <div class="post-content">
       <div class="posted-by">Posted by <%= post.user.name %></div>

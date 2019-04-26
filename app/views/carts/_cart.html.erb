@@ -19,7 +19,7 @@
     <div class="totals">
       <div class="totals-item">
           <label>Total</label>
-          <div class="totals-value" id="cart-subtotal"><%= number_to_currency(cart.total_price) %></div>
+          <div class="totals-value" id="cart-subtotal"><%= number_to_currency(cart.total_price, :locale => :vi) %></div>
       </div>
     </div>
 </table>
