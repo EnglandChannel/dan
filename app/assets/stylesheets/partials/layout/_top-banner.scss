@@ -16,9 +16,17 @@
       display: none;
       height: 150px;
       background-color: #777;
-    -webkit-transition: .6s ease-in-out left;
-  -o-transition: .6s ease-in-out left;
-  transition: .6s ease-in-out left;
+      -webkit-transition: .6s ease-in-out left;
+      -o-transition: .6s ease-in-out left;
+      transition: .6s ease-in-out left;
+      pointer-events: none;
+      cursor: default;
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none;
 
   h2 {
     position: absolute;
@@ -29,6 +37,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 2.4em;
     letter-spacing: 2px;
+    color: $defaultTextColor;
   }
 }
 
@@ -106,7 +115,7 @@ left: -100%;
     background: #000000;
     font-size: 5px;
     background: none !important;
-    color: #000 !important;
+    color: $defaultTextColor !important;
     text-align: center;
 }
 
@@ -178,7 +187,7 @@ left: -100%;
     width: 10px;
     height: 10px;
     margin: 0;
-    background-color: #000000;
+    background-color: $defaultTextColor;
 }
 
 .carousel-caption {
