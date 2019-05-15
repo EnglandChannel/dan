@@ -20,6 +20,10 @@
     </tr>
     <% end %>
 </table>
+
+<hr>
+<span>Thành tiền: <b><%= number_to_currency(@order.total_price, :locale => :vi) %></b></span>
+<hr>
  
 <p>Phương thức thanh toán: <b><%= @order.pay_type %></b></p>
 <p>Cảm ơn vì đã mua hàng tại <b>Dan Store<b> thân ái.</p>

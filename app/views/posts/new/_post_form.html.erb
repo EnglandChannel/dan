@@ -15,7 +15,7 @@
                     required: true, 
                     minlength: 20,
                     maxlength: 1000,
-                    placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.', 
+                    placeholder: 'Thông tin chi tiết sản phẩm.', 
                     class: 'form-control' %>
     <%= f.text_field  :price, 
                     maxlength: 100, 
@@ -25,5 +25,8 @@
                     minlength: 0,
                     maxlength: 100 %>
     <%= f.collection_select :category_id, @categories, :id, :name, class: 'form-control' %>
+    <%= f.number_field :amount,
+                    min: 1,
+                    class: 'form-control'%>
     <%= f.submit "Create a post", class: 'form-control' %>
 <% end %>
