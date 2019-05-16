@@ -1,5 +1,7 @@
 <div id="single-post-content">
-  <div class="row">
+  <%
+=begin%>
+ <div class="row">
       <%= image_tag(@post.image_url.to_s) if @post.image? %>
       <div class="product-details">
         <h3><%= @post.info.html_safe %></h3>
@@ -21,5 +23,31 @@
 
         <% end %>
       </div>
-  </div><!-- row -->
+  </div><!-- row --> 
+<%
+=end%>
+
+  <!--ver 2-->
+  <div class="product-window">
+    <div class="info-sect left">
+
+      <button id="back-btn"><i class="ion-arrow-left-c"></i></button>
+
+      <div class="text-box">
+        <h3><%= @post.title %></h3>
+        <h5><%= number_to_currency(@post.price, :locale => :vi) %></h5>
+      </div>
+      <%= image_tag(@post.image_url.to_s, :class => "product-img") if @post.image? %>
+    </div>
+    <div class="info-sect right">
+      <p><%= @post.info %></p>
+      <p class="in-stock">In stock.</p>
+      <div class="rating"><img class="stars" src="http://res.cloudinary.com/dcwodeda4/image/upload/v1503000014/stars_fysiop.png"/>
+        <p class="review-sum">(4.67 - 172 reviews)</p>
+      </div>
+      <hr>
+      <%= button_to 'Thêm vào giỏ', line_items_path(:post_id => @post), :class => 'add-to-cart' %>
+    </div>
+  </div>
+
 </div>
