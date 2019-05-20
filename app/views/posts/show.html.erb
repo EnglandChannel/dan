@@ -31,7 +31,11 @@
   <div class="product-window">
     <div class="info-sect left">
 
-      <button id="back-btn"><i class="ion-arrow-left-c"></i></button>
+      <button id="back-btn">
+        <%= link_to :back do %>
+          <i class="ion-arrow-left-c"></i>
+        <% end %>
+      </button>
 
       <div class="text-box">
         <h3><%= @post.title %></h3>
@@ -47,6 +51,12 @@
       </div>
       <hr>
       <%= button_to 'Thêm vào giỏ', line_items_path(:post_id => @post), :class => 'add-to-cart' %>
+      <% if user_signed_in? && current_user.admin? %>
+          <!--edit post-->
+          <%= link_to edit_admin_post_path(@post), :class => 'edit_post' do %>
+            <i class="fas fa-edit"></i>edit
+          <% end %>
+        <% end %>
     </div>
   </div>
 

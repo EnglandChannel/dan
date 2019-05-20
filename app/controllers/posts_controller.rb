@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :redirect_if_not_signed_in, only: [:new]
+    before_action :redirect_if_not_signed_in,  only: [:new]
 
     def post_params
         params.require(:post).permit(:title, :info, :image, :price, :category_id)
@@ -70,6 +70,7 @@ class PostsController < ApplicationController
     end
 
     def get_posts
+
         PostsForBranchService.new({
             search: params[:search],
             category: params[:category],

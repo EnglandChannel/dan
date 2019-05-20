@@ -1,3 +1,3 @@
-$('#slideshow').carousel({
-    interval: 5000
-});
+// $('#slideshow').carousel({
+//     interval: 5000
+// });

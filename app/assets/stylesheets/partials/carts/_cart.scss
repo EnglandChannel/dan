@@ -1,3 +1,10 @@
+.cart {
+  color: $darkText;
+  font-family: 'Montserrat', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+}
 .cart_title {
     font: 120% bold;
 }
@@ -59,8 +66,6 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 /* Body/Header stuff */
 body {
   padding: 10px 30px 30px 20px;
-  font-family: $font-default;
-  font-weight: 100;
   background: #fff;
 }
 
@@ -107,7 +112,8 @@ label {
   .product-details {
     .product-title {
       margin-right: 20px;
-      font-family: $font-bold;
+      font-size: 1.1em;
+      font-weight: bold;
     }
     .product-description {
       margin: 5px 20px 5px 0;
@@ -157,6 +163,7 @@ label {
       float: right;
       width: 21%;
       text-align: right;
+      font-size: 1.6em;
     }
   }
   
@@ -210,6 +217,9 @@ label {
   .product-price {
     clear: both;
     width: 70px;
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 100;
   }
   
   .product-quantity {
